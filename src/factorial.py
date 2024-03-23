@@ -30,14 +30,27 @@ def rango_factorial(inicio,fin):
     return valores
 
 if len(sys.argv) == 1:
-   while True:
-       try:
-          n=input("Ingrese un rango desde-hasta que quiera evaluar: ")
-          inicio, fin = map(int, n.split("-"))
+    
+    while True:
+        try:
+            n=input("Ingrese un rango desde-hasta que quiera evaluar: ")
+            if n.startswith("-"):
+                inicio=1
+                fin=int(n.split("-")[1])
+                break
+            elif n.endswith("-"):
+                inicio= int(n.split("-")[0])
+                fin=60
+                break
+            elif "-" in n:
+                inicio, fin= map(int,n.split("-"))
+                break
+            else:
+                raise ValueError 
 
-          break
-       except ValueError: 
-           print("Debe ingresar un rango valido")
+        
+        except ValueError: 
+            print("Debe ingresar un rango valido")
 
 factorial=rango_factorial(inicio,fin)
 if factorial:
