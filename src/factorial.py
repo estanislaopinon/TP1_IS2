@@ -20,14 +20,29 @@ def factorial(num):
             num -= 1
         return fact 
 
+def rango_factorial(inicio,fin):
+    valores=[]
+    for i in range(inicio,fin+1):
+        j= factorial(i)
+        if j is not None:
+            valores.append((i,j))
+
+    return valores
+
 if len(sys.argv) == 1:
    while True:
        try:
-          n=int(input("Debe ingresar un número: "))
+          n=input("Ingrese un rango desde-hasta que quiera evaluar: ")
+          inicio, fin = map(int, n.split("-"))
+
           break
        except ValueError: 
-           print("Debe ingresar un número valido")
+           print("Debe ingresar un rango valido")
 
-
-print("Factorial ",n,"! es ", factorial(n)) 
+factorial=rango_factorial(inicio,fin)
+if factorial:
+    for i,j in factorial:
+        print(f"El factorial de {i} es {j}")
+else:
+    print("No se han encontrado factoriales en el rango especificado")
 
