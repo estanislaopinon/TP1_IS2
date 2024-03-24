@@ -17,3 +17,4 @@ for num in range(lower, upper + 1):
        else:
            #Si el numero no tiene divisiores excepto 1 y si mismo, lo imprime como primo
            print(num)
+
