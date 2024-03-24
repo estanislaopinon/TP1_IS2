@@ -26,7 +26,7 @@ class Factorial():
             return fact #retorna el factorial 
     
     def run(self):
-        valores=[]#lista que almacena el numero y su respectivo factorial dentro del rango
+
         for i in range(self.min,self.max+1): #cicla por los valores dentro del rango
             j= self.calcular_factorial(i) #llama a la funcion factorial y guarda el valor
             if j is not None: #si j no esta vacio...
