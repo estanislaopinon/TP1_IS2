@@ -24,10 +24,14 @@ Para instalar y ejecutar la aplicación, sigue estos pasos:
 2. Dirigete a la carpeta `src` 
 3. Ejecuta `primos.py` para iniciar la aplicación.
 
+## Requerimientos para correr el programa:
+- Python
+- Matplotlib
+- Pip3
 
 ## Capturas de Pantalla
 
-a continuacion encontrará capturas sobre el código:
+[a continuacion encontrará capturas sobre el código](doc/cap_collatz.png)
 
 ### Recursos Externos
 
