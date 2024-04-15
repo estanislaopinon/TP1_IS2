@@ -20,13 +20,16 @@ import os
 class Prototype(ABC):
     # Constructor:
     def __init__(self):
-        # Mocking an expensive call
-        time.sleep(2)
         # Base attributes
         self.height = None
         self.age = None
         self.defense = None
         self.attack = None
+
+    def simulate_processing(self, remaining_time):
+        start_time = time.time()
+        while time.time() - start_time < remaining_time:
+            pass
 
 # *------------------------------------------------------------------------------
 # * El método clone() no está definido en el prototipo y mediante @abstractmethod
@@ -45,9 +48,9 @@ class Prototype(ABC):
 
 class Shopkeeper(Prototype):
     def __init__(self, height, age, defense, attack):
+        # Call superclass constructor
         super().__init__()
-        # Mock expensive call
-        time.sleep(3)
+        # Assign base values
         self.height = height
         self.age = age
         self.defense = defense
@@ -55,8 +58,7 @@ class Shopkeeper(Prototype):
         # Subclass-specific Attribute
         self.charisma = 30
 
-    # Implementa el método de clonado mediante una copia de arbol de métodos
-
+    # Implementa el método de clonado
     def clone(self):
         return copy.deepcopy(self)
 
@@ -68,11 +70,17 @@ class Shopkeeper(Prototype):
 
 class Warrior(Prototype):
     def __init__(self, height, age, defense, attack):
-        # Call superclass constructor, time.sleep() and assign base values
+        # Call superclass constructor
+        super().__init__()
+        # Assign base values
+        self.height = height
+        self.age = age
+        self.defense = defense
+        self.attack = attack
         # Concrete class attribute
         self.stamina = 60
-    # Overwriting Cloning Method
 
+    # Overwriting Cloning Method
     def clone(self):
         return copy.deepcopy(self)
 
@@ -81,7 +89,14 @@ class Warrior(Prototype):
 
 class Mage(Prototype):
     def __init__(self, height, age, defense, attack):
-        # Call superclass constructor, time.sleep() and assign base values
+        # Call superclass constructor
+        super().__init__()
+        # Assign base values
+        self.height = height
+        self.age = age
+        self.defense = defense
+        self.attack = attack
+        # Concrete class attribute
         self.mana = 100
 
     # Overwriting Cloning Method
@@ -128,3 +143,15 @@ for i in range(3):
 
 dt = datetime.now()
 print('Finalizó la creación de la población NPC: ', dt)
+
+# Crear anidamientos adicionales con carga de procesamiento simulada
+print("Creando anidamientos adicionales...")
+base_prototype = Shopkeeper(170, 30, 10, 5)
+remaining_time = 2
+for i in range(20):
+    print(f"Anidamiento {i+1}:")
+    nested_prototype = base_prototype.clone()
+    nested_prototype.simulate_processing(remaining_time)
+    print("Procesamiento simulado completado.")
+    # Restar el tiempo de procesamiento de cada anidamiento al tiempo total
+    remaining_time -= 2 / (i+2)  # Divide el tiempo restante en cada iteració
