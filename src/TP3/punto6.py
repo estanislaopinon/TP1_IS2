@@ -154,4 +154,4 @@ for i in range(20):
     nested_prototype.simulate_processing(remaining_time)
     print("Procesamiento simulado completado.")
     # Restar el tiempo de procesamiento de cada anidamiento al tiempo total
-    remaining_time -= 2 / (i+2)  # Divide el tiempo restante en cada iteració
+    remaining_time -= 2 / (i+2)  # Divide el tiempo restante en cada iteracióN
