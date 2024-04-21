@@ -20,6 +20,7 @@ class Numero:
 
 class Decorador(Numero):
     def __init__(self, numero):
+        super().__init__(numero.valor)
         self.numero = numero
 
     def imprimir(self):
@@ -31,8 +32,7 @@ class Decorador(Numero):
 class SumarDosDecorator(Decorador):
     def imprimir(self):
         super().imprimir()
-        print(
-            f"Después de sumar 2: {self.numero.valor + 2 if hasattr(self.numero, 'valor') else 'No se puede realizar la operación'}")
+        print(f"Después de sumar 2: {self.numero.valor + 2}")
 
 # Decorador para multiplicar por 2 al número
 
